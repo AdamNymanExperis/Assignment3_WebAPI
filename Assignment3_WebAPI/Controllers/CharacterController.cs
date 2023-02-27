@@ -11,11 +11,11 @@ namespace Assignment3_WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CharactersController : ControllerBase
+    public class CharacterController : ControllerBase
     {
         private readonly MovieDbContext _context;
 
-        public CharactersController(MovieDbContext context)
+        public CharacterController(MovieDbContext context)
         {
             _context = context;
         }
