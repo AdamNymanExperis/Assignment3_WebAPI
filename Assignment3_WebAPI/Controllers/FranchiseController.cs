@@ -12,6 +12,7 @@ using Assignment3_WebAPI.Services;
 using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Exceptions;
 using Assignment3_WebAPI.Models.Dtos.MovieDtos;
+using Assignment3_WebAPI.Models.Dtos.CharacterDtos;
 
 namespace Assignment3_WebAPI.Controllers
 {
@@ -26,6 +27,38 @@ namespace Assignment3_WebAPI.Controllers
         {
             _franchiseService = franchiseService;
             _mapper = mapper;
+        }
+
+        [HttpGet("{id}/movies")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _franchiseService.GetMoviesInFranchise(id)));
+            }
+            catch (FranchiseNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+        }
+
+        [HttpGet("{id}/characters")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInFranchise(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _franchiseService.GetCharactersInFranchise(id)));
+            }
+            catch (FranchiseNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
         }
 
         // GET: api/Franchises

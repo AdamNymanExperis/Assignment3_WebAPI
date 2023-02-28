@@ -14,6 +14,7 @@ namespace Assignment3_WebAPI.Profiles
             CreateMap<Franchise, GetFranchiseDto>()
                 .ForMember(dto => dto.Movies, options =>
                 options.MapFrom(movieDomain => movieDomain.Movies.Select(movie => $"api/movie/{movie.Id}").ToList()));
+
         }
     }
 }

@@ -13,6 +13,20 @@ namespace Assignment3_WebAPI.Services
             _context = context;
         }
 
+        public async Task<IEnumerable<Character>> GetCharactersInMovie(int id)
+        {
+            var movie = await _context.Movies.Include(x => x.Characters).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (movie == null)
+            {
+                throw new MovieNotFoundException(id);
+            }
+
+            return movie.Characters;
+        }
+
+
+
         public async Task<IEnumerable<Movie>> getAllMovies()
         {
             return await _context.Movies.Include(x => x.Characters).ToListAsync();

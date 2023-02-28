@@ -11,6 +11,7 @@ using AutoMapper;
 using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Exceptions;
 using Assignment3_WebAPI.Models.Dtos.MovieDtos;
+using Assignment3_WebAPI.Models.Dtos.CharacterDtos;
 
 namespace Assignment3_WebAPI.Controllers
 {
@@ -27,6 +28,23 @@ namespace Assignment3_WebAPI.Controllers
             _movieService = movieService;
             _mapper = mapper;
         }
+
+        [HttpGet("{id}/characters")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _movieService.GetCharactersInMovie(id)));
+            }
+            catch (MovieNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+        }
+
 
         // GET: api/Movies
         [HttpGet]

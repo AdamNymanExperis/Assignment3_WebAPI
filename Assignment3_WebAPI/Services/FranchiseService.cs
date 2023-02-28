@@ -12,6 +12,47 @@ namespace Assignment3_WebAPI.Services
         {
             _context = context;
         }
+
+        public async Task<IEnumerable<Movie>> GetMoviesInFranchise(int id)
+        {
+            var franchise = await _context.Franchises.Include(x => x.Movies).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (franchise == null)
+            {
+                throw new FranchiseNotFoundException(id);
+            }
+
+            return franchise.Movies;
+        }
+
+        public async Task<IEnumerable<Character>> GetCharactersInFranchise(int id)
+        {
+            var franchise = await _context.Franchises.Include(x => x.Movies).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (franchise == null)
+            {
+                throw new FranchiseNotFoundException(id);
+            }
+
+            var allCharactersInFranchise = new List<Character>();
+
+            foreach (Movie movie in franchise.Movies) // remove duplicates?? 
+            {
+                var foundMovie = await _context.Movies.Include(x => x.Characters).FirstOrDefaultAsync(x => x.Id == movie.Id);
+                
+                if (foundMovie == null)
+                {
+                    throw new MovieNotFoundException(id);
+                }
+                
+                allCharactersInFranchise.AddRange(foundMovie.Characters);
+            }
+
+            return allCharactersInFranchise.Distinct();
+        }
+
+
+
         public async Task<Franchise> AddFranchise(Franchise franchise)
         {
             _context.Franchises.Add(franchise);
