@@ -13,5 +13,7 @@ namespace Assignment3_WebAPI.Services
         Task<IEnumerable<Franchise>> getAllFranchises();
         Task<Franchise> getFranchiseById(int id);
         Task<Franchise> UpdateFranchise(Franchise franchise);
+
+        Task UpdateMoviesInFranchise(int[] movieIds, int franchiseId);
     }
 }

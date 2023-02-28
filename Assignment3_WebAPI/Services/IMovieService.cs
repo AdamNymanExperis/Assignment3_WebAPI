@@ -10,5 +10,6 @@ namespace Assignment3_WebAPI.Services
         Task<IEnumerable<Movie>> getAllMovies();
         Task<Movie> getMovieById(int id);
         Task<Movie> UpdateMovie(Movie movie);
+        Task UpdateCharactersInMovie(int[] characterIds, int movieId);
     }
 }

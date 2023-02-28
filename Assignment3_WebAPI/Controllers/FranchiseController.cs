@@ -139,6 +139,26 @@ namespace Assignment3_WebAPI.Controllers
 
             return NoContent();
         }
+
+        // Updating characters in a movie
+        [HttpPut("/UpdateMovieInFranchise")]
+        public async Task<IActionResult> PutCharactersInMovie(int[] movieIds, int franchiseId)
+        {
+            try
+            {
+                await _franchiseService.UpdateMoviesInFranchise(movieIds, franchiseId);
+                return NoContent();
+            }
+            catch (MovieNotFoundException ex)
+            {
+                return NotFound(
+                    new ProblemDetails()
+                    {
+                        Detail = ex.Message
+                    }
+                    );
+            }
+        }
     }
 }
 

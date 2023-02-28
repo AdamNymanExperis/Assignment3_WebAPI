@@ -29,6 +29,27 @@ namespace Assignment3_WebAPI.Controllers
             _mapper = mapper;
         }
 
+        // Updating characters in a movie
+        [HttpPut("/updateCharactersInMovie")]
+        public async Task<IActionResult> PutCharactersInMovie(int[] characterIds, int movieId)
+        {
+            try
+            {
+                await _movieService.UpdateCharactersInMovie(characterIds, movieId);
+                return NoContent();
+            }
+            catch (MovieNotFoundException ex)
+            {
+                return NotFound(
+                    new ProblemDetails()
+                    {
+                        Detail = ex.Message
+
+                    }
+                    );
+            }
+        }
+
         [HttpGet("{id}/characters")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
         {

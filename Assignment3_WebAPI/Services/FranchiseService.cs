@@ -101,5 +101,27 @@ namespace Assignment3_WebAPI.Services
             await _context.SaveChangesAsync();
             return franchise;
         }
+
+        public async Task UpdateMoviesInFranchise(int[] movieIds, int franchiseId)
+        {
+            var checkFranchise = await _context.Franchises.FindAsync(franchiseId);
+            if (checkFranchise == null)
+                throw new MovieNotFoundException(franchiseId);
+
+            List<Movie> movies = movieIds
+                .ToList()
+                .Select(x => _context.Movies
+                .Where(s => s.Id == x).First())
+                .ToList();
+            // Get professor for Id
+            Franchise franchise = await _context.Franchises
+                .Where(x => x.Id == franchiseId)
+                .FirstAsync();
+            // Set the professors students
+            franchise.Movies = movies;
+            _context.Entry(franchise).State = EntityState.Modified;
+            // Save all the changes
+            await _context.SaveChangesAsync();
+        }
     }
 }
