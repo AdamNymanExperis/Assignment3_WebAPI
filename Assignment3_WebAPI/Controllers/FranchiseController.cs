@@ -24,14 +24,14 @@ namespace Assignment3_WebAPI.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Franchise>>> GetFranchises()
         {
-            return await _context.Franchises.ToListAsync();
+            return await _context.Franchises.Include(x => x.Movies).ToListAsync();
         }
 
         // GET: api/Franchises/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Franchise>> GetFranchise(int id)
         {
-            var franchise = await _context.Franchises.FindAsync(id);
+            var franchise = await _context.Franchises.Include(x => x.Movies).FirstOrDefaultAsync(x => x.Id == id);
 
             if (franchise == null)
             {

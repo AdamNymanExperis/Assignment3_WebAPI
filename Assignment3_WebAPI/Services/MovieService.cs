@@ -20,7 +20,8 @@ namespace Assignment3_WebAPI.Services
 
         public async Task<Movie> getMovieById(int id)
         {
-            var movie = await _context.Movies.FindAsync(id);
+            var movie = await _context.Movies.Include(x => x.Characters).FirstOrDefaultAsync(x => x.Id == id);
+
 
             if (movie == null)
             {

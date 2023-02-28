@@ -15,6 +15,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IMovieService, MovieService>();
+builder.Services.AddTransient<ICharacterService, CharacterService>();
 
 var app = builder.Build();
 

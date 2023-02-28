@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Assignment3_WebAPI.Models.Dtos
+namespace Assignment3_WebAPI.Models.Dtos.MovieDtos
 {
     public class AddMovieDto
     {

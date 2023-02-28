@@ -1,5 +1,6 @@
 ﻿using Assignment3_WebAPI.Models;
 using Assignment3_WebAPI.Models.Dtos;
+using Assignment3_WebAPI.Models.Dtos.MovieDtos;
 using AutoMapper;
 
 namespace Assignment3_WebAPI.Profiles

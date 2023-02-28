@@ -10783,24 +10783,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\JDuong\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\RStemp\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\JDuong\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
       "projectName": "Assignment3_WebAPI",
-      "projectPath": "C:\\Users\\JDuong\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
-      "packagesPath": "C:\\Users\\JDuong\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\JDuong\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
+      "packagesPath": "C:\\Users\\RStemp\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\JDuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\RStemp\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10874,7 +10869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
   }

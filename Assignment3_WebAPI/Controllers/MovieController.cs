@@ -10,6 +10,7 @@ using Assignment3_WebAPI.Services;
 using AutoMapper;
 using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Exceptions;
+using Assignment3_WebAPI.Models.Dtos.MovieDtos;
 
 namespace Assignment3_WebAPI.Controllers
 {
@@ -40,7 +41,7 @@ namespace Assignment3_WebAPI.Controllers
         {
             try
             {
-                return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _movieService.getMovieById(id)));
+                return Ok(_mapper.Map<GetMovieDto>(await _movieService.getMovieById(id)));
             }
             catch (MovieNotFoundException ex) 
             {
