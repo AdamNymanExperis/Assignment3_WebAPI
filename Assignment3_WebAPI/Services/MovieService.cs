@@ -1,4 +1,5 @@
-﻿using Assignment3_WebAPI.Models;
+﻿using Assignment3_WebAPI.Exceptions;
+using Assignment3_WebAPI.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,7 +15,7 @@ namespace Assignment3_WebAPI.Services
 
         public async Task<IEnumerable<Movie>> getAllMovies()
         {
-            return await _context.Movies.ToListAsync();
+            return await _context.Movies.Include(x => x.Characters).ToListAsync();
         }
 
         public async Task<Movie> getMovieById(int id)
@@ -23,8 +24,7 @@ namespace Assignment3_WebAPI.Services
 
             if (movie == null)
             {
-                //Create custom exception
-                //return NotFound();
+                throw new MovieNotFoundException(id);
             }
 
             return movie;
@@ -43,7 +43,7 @@ namespace Assignment3_WebAPI.Services
             var movie = await _context.Movies.FindAsync(id);
             if (movie == null)
             {
-                //throw new GuitarNotFoundException(id);
+                throw new MovieNotFoundException(id);
             }
 
             _context.Movies.Remove(movie);
@@ -55,8 +55,7 @@ namespace Assignment3_WebAPI.Services
             var foundMovie = await _context.Movies.AnyAsync(x => x.Id == movie.Id);
             if (!foundMovie)
             {
-                // create custom exception
-                //throw new GuitarNotFoundException(guitar.Id);
+                throw new MovieNotFoundException(movie.Id);
             }
             _context.Entry(movie).State = EntityState.Modified;
             await _context.SaveChangesAsync();
