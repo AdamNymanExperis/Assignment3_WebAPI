@@ -16,6 +16,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddTransient<IMovieService, MovieService>();
 builder.Services.AddTransient<ICharacterService, CharacterService>();
+builder.Services.AddTransient<IFranchiseService, FranchiseService>();
 
 var app = builder.Build();
 
