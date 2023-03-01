@@ -19,7 +19,6 @@ namespace Assignment3_WebAPI.Controllers
     [ApiController]
     public class MovieController : ControllerBase
     {
-        //private readonly MovieDbContext _context;
         private readonly IMovieService _movieService;
         private readonly IMapper _mapper;
 
@@ -29,7 +28,12 @@ namespace Assignment3_WebAPI.Controllers
             _mapper = mapper;
         }
 
-        // Updating characters in a movie
+        /// <summary>
+        /// Controller for PUT characters in movie.
+        /// </summary>
+        /// <param name="characterIds">Array of character ids</param>
+        /// <param name="movieId">Id of movie.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpPut("/updateCharactersInMovie")]
         public async Task<IActionResult> PutCharactersInMovie(int[] characterIds, int movieId)
         {
@@ -50,8 +54,13 @@ namespace Assignment3_WebAPI.Controllers
             }
         }
 
+        /// <summary>
+        /// Controller for GET 
+        /// </summary>
+        /// <param name="id">Id of movie</param>
+        /// <returns>IEnumerable of Movie</returns>
         [HttpGet("{id}/characters")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
+        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInMovie(int id)
         {
             try
             {
@@ -67,14 +76,21 @@ namespace Assignment3_WebAPI.Controllers
         }
 
 
-        // GET: api/Movies
+        /// <summary>
+        /// Controller for GET movies in database.
+        /// </summary>
+        /// <returns>IEnumerable of GetMovieDTO</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetMovieDto>>> GetMovies()
         {
             return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _movieService.getAllMovies()));
         }
         
-        // GET: api/Movies/5
+        /// <summary>
+        /// Controller for GET movie by id.
+        /// </summary>
+        /// <param name="id">Id of movie</param>
+        /// <returns>GetMovieDTO</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<GetMovieDto>> GetMovie(int id)
         {
@@ -91,8 +107,11 @@ namespace Assignment3_WebAPI.Controllers
             
         }
 
-        // POST: api/Movies
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Controller for PUT movie in database. 
+        /// </summary>
+        /// <param name="addMovieDto">addMovieDTO</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpPost]
         public async Task<ActionResult<Movie>> PostMovie(AddMovieDto addMovieDto)
         {
@@ -101,8 +120,12 @@ namespace Assignment3_WebAPI.Controllers
             return CreatedAtAction(nameof(GetMovie), new { id = movie.Id }, movie);
         }
 
-        
-        // DELETE: api/Movies/5
+
+        /// <summary>
+        /// Controller for DELETE movie in database.
+        /// </summary>
+        /// <param name="id">Id of movie to delete</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteMovie(int id)
         {
@@ -121,9 +144,12 @@ namespace Assignment3_WebAPI.Controllers
             return NoContent();
         }
 
-        
-        // PUT: api/Movies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Controller for PUT movie in database.
+        /// </summary>
+        /// <param name="id">Id of movie to be updated.</param>
+        /// <param name="dtoMovie">dtoMovie</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutMovie(int id, PutMovieDto dtoMovie)
         {

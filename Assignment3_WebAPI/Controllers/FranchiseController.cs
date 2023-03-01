@@ -28,7 +28,11 @@ namespace Assignment3_WebAPI.Controllers
             _franchiseService = franchiseService;
             _mapper = mapper;
         }
-
+        /// <summary>
+        /// Controller for GET the movies belonging to a franchise.
+        /// </summary>
+        /// <param name="id">The id of the franchise.</param>
+        /// <returns></returns>
         [HttpGet("{id}/movies")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
         {
@@ -44,7 +48,11 @@ namespace Assignment3_WebAPI.Controllers
                 });
             }
         }
-
+        /// <summary>
+        /// Controller for GET the characters that are connected to a franchise.
+        /// </summary>
+        /// <param name="id">The id of the franchise.</param>
+        /// <returns>IEnumerable of Movie</returns>
         [HttpGet("{id}/characters")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInFranchise(int id)
         {
@@ -60,15 +68,21 @@ namespace Assignment3_WebAPI.Controllers
                 });
             }
         }
-
-        // GET: api/Franchises
+        /// <summary>
+        /// Controller for GET all the franchises in the database.
+        /// </summary>
+        /// <returns>IEnumerable of GetFranchiseDto</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetFranchiseDto>>> GetFranchises()
         {
             return Ok(_mapper.Map<IEnumerable<GetFranchiseDto>>(await _franchiseService.getAllFranchises()));
         }
 
-        // GET: api/Franchises/5
+        /// <summary>
+        /// Controller for GET a franchise by id.
+        /// </summary>
+        /// <param name="id">The id of the franchise.</param>
+        /// <returns>A GetFranchiseDto</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<GetFranchiseDto>> GetFranchise(int id)
         {
@@ -85,8 +99,12 @@ namespace Assignment3_WebAPI.Controllers
             }
         }
 
-        // PUT: api/Franchises/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Controller for PUT a franchise in the database
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="putFranchiseDto"></param>
+        /// <returns></returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutFranchise(int id, PutFranchiseDto putFranchiseDto)
         {
@@ -111,8 +129,11 @@ namespace Assignment3_WebAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Franchises
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+       /// <summary>
+       /// Controller for POST a new franchise to the database.
+       /// </summary>
+       /// <param name="addFranchiseDto">DTO holding franchise data.</param>
+       /// <returns>The Franchise that was posted.</returns>
         [HttpPost]
         public async Task<ActionResult<Franchise>> PostFranchise(AddFranchiseDto addFranchiseDto)
         {
@@ -121,7 +142,11 @@ namespace Assignment3_WebAPI.Controllers
             return CreatedAtAction(nameof(GetFranchise), new { id = franchise.Id }, franchise);
         }
 
-        // DELETE: api/Franchises/5
+        /// <summary>
+        /// Controller for DELETE franchise by id
+        /// </summary>
+        /// <param name="id">The id of the franchise to be removed from database.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteFranchise(int id)
         {
@@ -140,9 +165,14 @@ namespace Assignment3_WebAPI.Controllers
             return NoContent();
         }
 
-        // Updating characters in a movie
+        /// <summary>
+        /// Controller for PUT movies in franchise.
+        /// </summary>
+        /// <param name="movieIds">List of ids belonging to a franchise. </param>
+        /// <param name="franchiseId">The id of the franchise to be updatded.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpPut("/UpdateMovieInFranchise")]
-        public async Task<IActionResult> PutCharactersInMovie(int[] movieIds, int franchiseId)
+        public async Task<IActionResult> PutMoviesInFranchise(int[] movieIds, int franchiseId)
         {
             try
             {

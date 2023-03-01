@@ -27,14 +27,21 @@ namespace Assignment3_WebAPI.Controllers
             _mapper = mapper;
         }
 
-        // GET: api/Movies
+        /// <summary>
+        /// Controller for GET characters in database.
+        /// </summary>
+        /// <returns>IEnumerable of GetCharacterDTO</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<GetCharacterDto>>> GetCharacters()
         {
             return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _characterService.getAllCharacters()));
         }
 
-        // GET: api/Movies/5
+        /// <summary>
+        /// Controller for GET character by id.
+        /// </summary>
+        /// <param name="id">Id of character.</param>
+        /// <returns>GetCharacterDTO</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<GetCharacterDto>> GetCharacter(int id)
         {
@@ -52,8 +59,11 @@ namespace Assignment3_WebAPI.Controllers
 
         }
 
-        // POST: api/Movies
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Controller for POST character to the database.
+        /// </summary>
+        /// <param name="addCharacterDto">addCharacterDTO</param>
+        /// <returns>The character that was added to the database.</returns>
         [HttpPost]
         public async Task<ActionResult<Character>> PostCharacter(AddCharacterDto addCharacterDto)
         {
@@ -63,7 +73,11 @@ namespace Assignment3_WebAPI.Controllers
         }
 
 
-        // DELETE: api/Character/5
+        /// <summary>
+        /// Controller for DELETE character from database. 
+        /// </summary>
+        /// <param name="id">Id of character</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCharacter(int id)
         {
@@ -83,8 +97,12 @@ namespace Assignment3_WebAPI.Controllers
         }
 
 
-        // PUT: api/Movies/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        /// <summary>
+        /// Controller for PUT character in databse.
+        /// </summary>
+        /// <param name="id">Id of character to be updated.</param>
+        /// <param name="dtoCharacter">dtoCharacter with data for character.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCharacter(int id, PutCharacterDto dtoCharacter)
         {

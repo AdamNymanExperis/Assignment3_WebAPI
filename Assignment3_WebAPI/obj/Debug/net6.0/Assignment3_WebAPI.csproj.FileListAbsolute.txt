@@ -875,3 +875,5 @@ C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\Assignment3_WebAPI.pdb
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\Assignment3_WebAPI.genruntimeconfig.cache
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\ref\Assignment3_WebAPI.dll
+C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\bin\Debug\net6.0\Assignment3_WebAPI.xml
+C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\Assignment3_WebAPI.xml

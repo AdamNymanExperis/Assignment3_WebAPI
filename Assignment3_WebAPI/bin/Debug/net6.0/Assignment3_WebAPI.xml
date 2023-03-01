@@ -1,0 +1,198 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Assignment3_WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:Assignment3_WebAPI.Controllers.CharacterController.GetCharacters">
+            <summary>
+            Controller for GET characters in database.
+            </summary>
+            <returns>IEnumerable of GetCharacterDTO</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.CharacterController.GetCharacter(System.Int32)">
+            <summary>
+            Controller for GET character by id.
+            </summary>
+            <param name="id">Id of character.</param>
+            <returns>GetCharacterDTO</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.CharacterController.PostCharacter(Assignment3_WebAPI.Models.Dtos.CharacterDtos.AddCharacterDto)">
+            <summary>
+            Controller for POST character to the database.
+            </summary>
+            <param name="addCharacterDto">addCharacterDTO</param>
+            <returns>The character that was added to the database.</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.CharacterController.DeleteCharacter(System.Int32)">
+            <summary>
+            Controller for DELETE character from database. 
+            </summary>
+            <param name="id">Id of character</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.CharacterController.PutCharacter(System.Int32,Assignment3_WebAPI.Models.Dtos.CharacterDtos.PutCharacterDto)">
+            <summary>
+            Controller for PUT character in databse.
+            </summary>
+            <param name="id">Id of character to be updated.</param>
+            <param name="dtoCharacter">dtoCharacter with data for character.</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.GetMoviesInFranchise(System.Int32)">
+            <summary>
+            Controller for GET the movies belonging to a franchise.
+            </summary>
+            <param name="id">The id of the franchise.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.GetCharactersInFranchise(System.Int32)">
+            <summary>
+            Controller for GET the characters that are connected to a franchise.
+            </summary>
+            <param name="id">The id of the franchise.</param>
+            <returns>IEnumerable of Movie</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.GetFranchises">
+            <summary>
+            Controller for GET all the franchises in the database.
+            </summary>
+            <returns>IEnumerable of GetFranchiseDto</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.GetFranchise(System.Int32)">
+            <summary>
+            Controller for GET a franchise by id.
+            </summary>
+            <param name="id">The id of the franchise.</param>
+            <returns>A GetFranchiseDto</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.PutFranchise(System.Int32,Assignment3_WebAPI.Models.Dtos.FranchiseDtos.PutFranchiseDto)">
+            <summary>
+            Controller for PUT a franchise in the database
+            </summary>
+            <param name="id"></param>
+            <param name="putFranchiseDto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.PostFranchise(Assignment3_WebAPI.Models.Dtos.FranchiseDtos.AddFranchiseDto)">
+            <summary>
+            Controller for POST a new franchise to the database.
+            </summary>
+            <param name="addFranchiseDto">DTO holding franchise data.</param>
+            <returns>The Franchise that was posted.</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.DeleteFranchise(System.Int32)">
+            <summary>
+            Controller for DELETE franchise by id
+            </summary>
+            <param name="id">The id of the franchise to be removed from database.</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.FranchiseController.PutMoviesInFranchise(System.Int32[],System.Int32)">
+            <summary>
+            Controller for PUT movies in franchise.
+            </summary>
+            <param name="movieIds">List of ids belonging to a franchise. </param>
+            <param name="franchiseId">The id of the franchise to be updatded.</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.PutCharactersInMovie(System.Int32[],System.Int32)">
+            <summary>
+            Controller for PUT characters in movie.
+            </summary>
+            <param name="characterIds">Array of character ids</param>
+            <param name="movieId">Id of movie.</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.GetCharactersInMovie(System.Int32)">
+            <summary>
+            Controller for GET 
+            </summary>
+            <param name="id">Id of movie</param>
+            <returns>IEnumerable of Movie</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.GetMovies">
+            <summary>
+            Controller for GET movies in database.
+            </summary>
+            <returns>IEnumerable of GetMovieDTO</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.GetMovie(System.Int32)">
+            <summary>
+            Controller for GET movie by id.
+            </summary>
+            <param name="id">Id of movie</param>
+            <returns>GetMovieDTO</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.PostMovie(Assignment3_WebAPI.Models.Dtos.MovieDtos.AddMovieDto)">
+            <summary>
+            Controller for PUT movie in database. 
+            </summary>
+            <param name="addMovieDto">addMovieDTO</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.DeleteMovie(System.Int32)">
+            <summary>
+            Controller for DELETE movie in database.
+            </summary>
+            <param name="id">Id of movie to delete</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="M:Assignment3_WebAPI.Controllers.MovieController.PutMovie(System.Int32,Assignment3_WebAPI.Models.Dtos.PutMovieDto)">
+            <summary>
+            Controller for PUT movie in database.
+            </summary>
+            <param name="id">Id of movie to be updated.</param>
+            <param name="dtoMovie">dtoMovie</param>
+            <returns>IActionresult for HTTP status code</returns>
+        </member>
+        <member name="T:Assignment3_WebAPI.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Assignment3_WebAPI.Migrations.AddedNewRow">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.AddedNewRow.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.AddedNewRow.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.AddedNewRow.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Assignment3_WebAPI.Migrations.UpdateValues">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.UpdateValues.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.UpdateValues.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.UpdateValues.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:Assignment3_WebAPI.Migrations.addedMoreSeed">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.addedMoreSeed.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.addedMoreSeed.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Assignment3_WebAPI.Migrations.addedMoreSeed.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
