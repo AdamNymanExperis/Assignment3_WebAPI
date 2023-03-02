@@ -71,8 +71,36 @@ namespace Assignment3_WebAPI.Migrations
                         {
                             Id = 4,
                             Alias = "War Machine",
-                            FullName = "Rodney As",
+                            FullName = "James Rhodes",
                             Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Alias = "Jabba the Hut",
+                            FullName = "Jabba Desilijic Tiure",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Alias = "Ben",
+                            FullName = "Obiwan Kenobi",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Alias = "The Hulk",
+                            FullName = "Bruce Banner",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Alias = "Captain America",
+                            FullName = "Steve Roger",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
                         });
                 });
 
@@ -198,6 +226,56 @@ namespace Assignment3_WebAPI.Migrations
                             Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg",
                             Title = "Iron Man 2",
                             Trailer = "https://www.youtube.com/watch?v=RsCSvPIcIpw"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Director = "George Lucas",
+                            FranchiseId = 3,
+                            Genre = "Sci-fi",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+                            Title = "Star Wars Episode VI",
+                            Trailer = "https://www.youtube.com/watch?v=RlT3Xg0Iq_g"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Director = "George Lucas",
+                            FranchiseId = 3,
+                            Genre = "Sci-fi",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+                            Title = "Star Wars: Episode II",
+                            Trailer = "https://www.youtube.com/watch?v=RlT3Xg0Iq_g"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Director = "George Lucas",
+                            FranchiseId = 3,
+                            Genre = "Sci-fi",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
+                            Title = "Star Wars: Episode III",
+                            Trailer = "https://www.youtube.com/watch?v=RlT3Xg0Iq_g"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Director = "Stan Lee",
+                            FranchiseId = 1,
+                            Genre = "Action",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg",
+                            Title = "The Incredible Hulk",
+                            Trailer = "https://www.youtube.com/watch?v=RsCSvPIcIpw"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Director = "Stan Lee",
+                            FranchiseId = 1,
+                            Genre = "Action",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg",
+                            Title = "Avengers",
+                            Trailer = "https://www.youtube.com/watch?v=RsCSvPIcIpw"
                         });
                 });
 
@@ -235,6 +313,66 @@ namespace Assignment3_WebAPI.Migrations
                         {
                             MovieId = 4,
                             CharacterId = 4
+                        },
+                        new
+                        {
+                            MovieId = 4,
+                            CharacterId = 1
+                        },
+                        new
+                        {
+                            MovieId = 5,
+                            CharacterId = 5
+                        },
+                        new
+                        {
+                            MovieId = 5,
+                            CharacterId = 3
+                        },
+                        new
+                        {
+                            MovieId = 6,
+                            CharacterId = 3
+                        },
+                        new
+                        {
+                            MovieId = 6,
+                            CharacterId = 6
+                        },
+                        new
+                        {
+                            MovieId = 3,
+                            CharacterId = 6
+                        },
+                        new
+                        {
+                            MovieId = 7,
+                            CharacterId = 3
+                        },
+                        new
+                        {
+                            MovieId = 7,
+                            CharacterId = 6
+                        },
+                        new
+                        {
+                            MovieId = 8,
+                            CharacterId = 7
+                        },
+                        new
+                        {
+                            MovieId = 9,
+                            CharacterId = 1
+                        },
+                        new
+                        {
+                            MovieId = 9,
+                            CharacterId = 7
+                        },
+                        new
+                        {
+                            MovieId = 9,
+                            CharacterId = 8
                         });
                 });
 

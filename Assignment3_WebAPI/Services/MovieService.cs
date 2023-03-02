@@ -89,14 +89,14 @@ namespace Assignment3_WebAPI.Services
                 .Select(x => _context.Characters
                 .Where(s => s.Id == x).First())
                 .ToList();
-            // Get professor for Id
+            
             Movie movie = await _context.Movies
                 .Where(x => x.Id == movieId)
                 .FirstAsync();
-            // Set the professors students
+           
             movie.Characters = characters;
             _context.Entry(movie).State = EntityState.Modified;
-            // Save all the changes
+        
             await _context.SaveChangesAsync();
              
         }

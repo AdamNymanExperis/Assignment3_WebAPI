@@ -9,33 +9,33 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Assignment3_WebAPI
 build_property.RootNamespace = Assignment3_WebAPI
-build_property.ProjectDir = C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\
+build_property.ProjectDir = C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI
+build_property.MSBuildProjectDirectory = C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Create.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xDcmVhdGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Delete.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xEZWxldGUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Details.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xEZXRhaWxzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Edit.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xFZGl0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Index.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Characters/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcmFjdGVyc1xJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/RStemp/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/ANyman/source/repos/Assignment3_WebAPI/Assignment3_WebAPI/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

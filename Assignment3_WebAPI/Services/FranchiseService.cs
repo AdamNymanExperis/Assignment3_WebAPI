@@ -36,7 +36,7 @@ namespace Assignment3_WebAPI.Services
 
             var allCharactersInFranchise = new List<Character>();
 
-            foreach (Movie movie in franchise.Movies) // remove duplicates?? 
+            foreach (Movie movie in franchise.Movies) 
             {
                 var foundMovie = await _context.Movies.Include(x => x.Characters).FirstOrDefaultAsync(x => x.Id == movie.Id);
                 
@@ -113,14 +113,14 @@ namespace Assignment3_WebAPI.Services
                 .Select(x => _context.Movies
                 .Where(s => s.Id == x).First())
                 .ToList();
-            // Get professor for Id
+          
             Franchise franchise = await _context.Franchises
                 .Where(x => x.Id == franchiseId)
                 .FirstAsync();
-            // Set the professors students
+          
             franchise.Movies = movies;
             _context.Entry(franchise).State = EntityState.Modified;
-            // Save all the changes
+     
             await _context.SaveChangesAsync();
         }
     }
