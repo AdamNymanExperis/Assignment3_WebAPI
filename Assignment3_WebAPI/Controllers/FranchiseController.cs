@@ -29,7 +29,7 @@ namespace Assignment3_WebAPI.Controllers
             _mapper = mapper;
         }
         /// <summary>
-        /// Controller for GET the movies belonging to a franchise.
+        /// Endpoint for GET the movies belonging to a franchise.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns></returns>
@@ -49,7 +49,7 @@ namespace Assignment3_WebAPI.Controllers
             }
         }
         /// <summary>
-        /// Controller for GET the characters that are connected to a franchise.
+        /// Endpoint for GET the characters that are connected to a franchise.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns>IEnumerable of Movie</returns>
@@ -69,7 +69,7 @@ namespace Assignment3_WebAPI.Controllers
             }
         }
         /// <summary>
-        /// Controller for GET all the franchises in the database.
+        /// Endpoint for GET all the franchises in the database.
         /// </summary>
         /// <returns>IEnumerable of GetFranchiseDto</returns>
         [HttpGet]
@@ -79,7 +79,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for GET a franchise by id.
+        /// Endpoint for GET a franchise by id.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns>A GetFranchiseDto</returns>
@@ -100,7 +100,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for PUT a franchise in the database
+        /// Endpoint for PUT a franchise in the database
         /// </summary>
         /// <param name="id"></param>
         /// <param name="putFranchiseDto"></param>
@@ -129,11 +129,11 @@ namespace Assignment3_WebAPI.Controllers
             return NoContent();
         }
 
-       /// <summary>
-       /// Controller for POST a new franchise to the database.
-       /// </summary>
-       /// <param name="addFranchiseDto">DTO holding franchise data.</param>
-       /// <returns>The Franchise that was posted.</returns>
+        /// <summary>
+        /// Endpoint for POST a new franchise to the database.
+        /// </summary>
+        /// <param name="addFranchiseDto">DTO holding franchise data.</param>
+        /// <returns>The Franchise that was posted.</returns>
         [HttpPost]
         public async Task<ActionResult<Franchise>> PostFranchise(AddFranchiseDto addFranchiseDto)
         {
@@ -143,7 +143,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for DELETE franchise by id
+        /// Endpoint for DELETE franchise by id
         /// </summary>
         /// <param name="id">The id of the franchise to be removed from database.</param>
         /// <returns>IActionresult for HTTP status code</returns>

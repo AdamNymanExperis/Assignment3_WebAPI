@@ -29,7 +29,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for PUT characters in movie.
+        /// Endpoint for PUT characters in movie.
         /// </summary>
         /// <param name="characterIds">Array of character ids</param>
         /// <param name="movieId">Id of movie.</param>
@@ -55,7 +55,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for GET 
+        /// Endpoint for GET 
         /// </summary>
         /// <param name="id">Id of movie</param>
         /// <returns>IEnumerable of Movie</returns>
@@ -77,7 +77,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Controller for GET movies in database.
+        /// Endpoint for GET movies in database.
         /// </summary>
         /// <returns>IEnumerable of GetMovieDTO</returns>
         [HttpGet]
@@ -85,9 +85,9 @@ namespace Assignment3_WebAPI.Controllers
         {
             return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _movieService.getAllMovies()));
         }
-        
+
         /// <summary>
-        /// Controller for GET movie by id.
+        /// Endpoint for GET movie by id.
         /// </summary>
         /// <param name="id">Id of movie</param>
         /// <returns>GetMovieDTO</returns>
@@ -108,7 +108,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for PUT movie in database. 
+        /// Endpoint for PUT movie in database. 
         /// </summary>
         /// <param name="addMovieDto">addMovieDTO</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -122,7 +122,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Controller for DELETE movie in database.
+        /// Endpoint for DELETE movie in database.
         /// </summary>
         /// <param name="id">Id of movie to delete</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -145,7 +145,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for PUT movie in database.
+        /// Endpoint for PUT movie in database.
         /// </summary>
         /// <param name="id">Id of movie to be updated.</param>
         /// <param name="dtoMovie">dtoMovie</param>

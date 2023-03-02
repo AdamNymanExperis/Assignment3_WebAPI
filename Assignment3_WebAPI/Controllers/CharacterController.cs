@@ -28,7 +28,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for GET characters in database.
+        /// Endpoint for GET characters in database.
         /// </summary>
         /// <returns>IEnumerable of GetCharacterDTO</returns>
         [HttpGet]
@@ -38,7 +38,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for GET character by id.
+        /// Endpoint for GET character by id.
         /// </summary>
         /// <param name="id">Id of character.</param>
         /// <returns>GetCharacterDTO</returns>
@@ -60,7 +60,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for POST character to the database.
+        /// Endpoint for POST character to the database.
         /// </summary>
         /// <param name="addCharacterDto">addCharacterDTO</param>
         /// <returns>The character that was added to the database.</returns>
@@ -74,7 +74,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Controller for DELETE character from database. 
+        /// Endpoint for DELETE character from database. 
         /// </summary>
         /// <param name="id">Id of character</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -98,7 +98,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Controller for PUT character in databse.
+        /// Endpoint for PUT character in databse.
         /// </summary>
         /// <param name="id">Id of character to be updated.</param>
         /// <param name="dtoCharacter">dtoCharacter with data for character.</param>
