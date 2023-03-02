@@ -66,6 +66,13 @@ namespace Assignment3_WebAPI.Migrations
                             Alias = "Darth Vader",
                             FullName = "Anakin Skywalker",
                             Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Alias = "War Machine",
+                            FullName = "Rodney As",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg"
                         });
                 });
 
@@ -181,6 +188,16 @@ namespace Assignment3_WebAPI.Migrations
                             Picture = "https://m.media-amazon.com/images/M/MV5BYTRhNjcwNWQtMGJmMi00NmQyLWE2YzItODVmMTdjNWI0ZDA2XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_.jpg",
                             Title = "Star Wars: Episode I",
                             Trailer = "https://www.youtube.com/watch?v=RlT3Xg0Iq_g"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Director = "Stan Lee",
+                            FranchiseId = 1,
+                            Genre = "Action",
+                            Picture = "https://m.media-amazon.com/images/M/MV5BMTczNTI2ODUwOF5BMl5BanBnXkFtZTcwMTU0NTIzMw@@._V1_FMjpg_UX1000_.jpg",
+                            Title = "Iron Man 2",
+                            Trailer = "https://www.youtube.com/watch?v=RsCSvPIcIpw"
                         });
                 });
 
@@ -213,6 +230,11 @@ namespace Assignment3_WebAPI.Migrations
                         {
                             MovieId = 3,
                             CharacterId = 3
+                        },
+                        new
+                        {
+                            MovieId = 4,
+                            CharacterId = 4
                         });
                 });
 
