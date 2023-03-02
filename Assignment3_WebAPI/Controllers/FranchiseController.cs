@@ -13,11 +13,15 @@ using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Exceptions;
 using Assignment3_WebAPI.Models.Dtos.MovieDtos;
 using Assignment3_WebAPI.Models.Dtos.CharacterDtos;
+using System.Net.Mime;
 
 namespace Assignment3_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/franchises")]
     [ApiController]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class FranchiseController : ControllerBase
     {
         private readonly IFranchiseService _franchiseService;
@@ -28,48 +32,9 @@ namespace Assignment3_WebAPI.Controllers
             _franchiseService = franchiseService;
             _mapper = mapper;
         }
+       
         /// <summary>
-        /// Endpoint for GET the movies belonging to a franchise.
-        /// </summary>
-        /// <param name="id">The id of the franchise.</param>
-        /// <returns></returns>
-        [HttpGet("{id}/movies")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
-        {
-            try
-            {
-                return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _franchiseService.GetMoviesInFranchise(id)));
-            }
-            catch (FranchiseNotFoundException ex)
-            {
-                return NotFound(new ProblemDetails
-                {
-                    Detail = ex.Message
-                });
-            }
-        }
-        /// <summary>
-        /// Endpoint for GET the characters that are connected to a franchise.
-        /// </summary>
-        /// <param name="id">The id of the franchise.</param>
-        /// <returns>IEnumerable of Movie</returns>
-        [HttpGet("{id}/characters")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInFranchise(int id)
-        {
-            try
-            {
-                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _franchiseService.GetCharactersInFranchise(id)));
-            }
-            catch (FranchiseNotFoundException ex)
-            {
-                return NotFound(new ProblemDetails
-                {
-                    Detail = ex.Message
-                });
-            }
-        }
-        /// <summary>
-        /// Endpoint for GET all the franchises in the database.
+        /// Gets all the franchises in the database.
         /// </summary>
         /// <returns>IEnumerable of GetFranchiseDto</returns>
         [HttpGet]
@@ -79,7 +44,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for GET a franchise by id.
+        /// Gets a franchise by id.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns>A GetFranchiseDto</returns>
@@ -100,7 +65,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for PUT a franchise in the database
+        /// Updates a franchise in the database
         /// </summary>
         /// <param name="id"></param>
         /// <param name="putFranchiseDto"></param>
@@ -130,7 +95,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for POST a new franchise to the database.
+        /// Adds a new franchise to the database.
         /// </summary>
         /// <param name="addFranchiseDto">DTO holding franchise data.</param>
         /// <returns>The Franchise that was posted.</returns>
@@ -143,7 +108,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for DELETE franchise by id
+        /// Removes a franchise by id
         /// </summary>
         /// <param name="id">The id of the franchise to be removed from database.</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -166,12 +131,53 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Controller for PUT movies in franchise.
+        /// Gets all the movies belonging to a franchise.
+        /// </summary>
+        /// <param name="id">The id of the franchise.</param>
+        /// <returns></returns>
+        [HttpGet("{id}/movies")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetMovieDto>>(await _franchiseService.GetMoviesInFranchise(id)));
+            }
+            catch (FranchiseNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+        }
+        /// <summary>
+        /// Gets all the characters that are connected to a franchise.
+        /// </summary>
+        /// <param name="id">The id of the franchise.</param>
+        /// <returns>IEnumerable of Movie</returns>
+        [HttpGet("{id}/characters")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInFranchise(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _franchiseService.GetCharactersInFranchise(id)));
+            }
+            catch (FranchiseNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Updates movies belonging to a franchise.
         /// </summary>
         /// <param name="movieIds">List of ids belonging to a franchise. </param>
         /// <param name="franchiseId">The id of the franchise to be updatded.</param>
         /// <returns>IActionresult for HTTP status code</returns>
-        [HttpPut("/UpdateMovieInFranchise")]
+        [HttpPut("{id}/movies")]
         public async Task<IActionResult> PutMoviesInFranchise(int[] movieIds, int franchiseId)
         {
             try

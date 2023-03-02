@@ -11,11 +11,15 @@ using AutoMapper;
 using Assignment3_WebAPI.Exceptions;
 using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Models.Dtos.CharacterDtos;
+using System.Net.Mime;
 
 namespace Assignment3_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/characters")]
     [ApiController]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class CharacterController : ControllerBase
     {
         private readonly ICharacterService _characterService;
@@ -28,7 +32,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for GET characters in database.
+        /// Gets all the characters in the database.
         /// </summary>
         /// <returns>IEnumerable of GetCharacterDTO</returns>
         [HttpGet]
@@ -38,7 +42,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for GET character by id.
+        /// Gets a character by id.
         /// </summary>
         /// <param name="id">Id of character.</param>
         /// <returns>GetCharacterDTO</returns>
@@ -60,7 +64,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for POST character to the database.
+        /// Adds a character to the database.
         /// </summary>
         /// <param name="addCharacterDto">addCharacterDTO</param>
         /// <returns>The character that was added to the database.</returns>
@@ -74,7 +78,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Endpoint for DELETE character from database. 
+        /// Removes a character from the database. 
         /// </summary>
         /// <param name="id">Id of character</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -98,7 +102,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Endpoint for PUT character in databse.
+        /// Updates a character in the database.
         /// </summary>
         /// <param name="id">Id of character to be updated.</param>
         /// <param name="dtoCharacter">dtoCharacter with data for character.</param>

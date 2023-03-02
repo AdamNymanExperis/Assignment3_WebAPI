@@ -12,11 +12,15 @@ using Assignment3_WebAPI.Models.Dtos;
 using Assignment3_WebAPI.Exceptions;
 using Assignment3_WebAPI.Models.Dtos.MovieDtos;
 using Assignment3_WebAPI.Models.Dtos.CharacterDtos;
+using System.Net.Mime;
 
 namespace Assignment3_WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/movies")]
     [ApiController]
+    [Produces(MediaTypeNames.Application.Json)]
+    [Consumes(MediaTypeNames.Application.Json)]
+    [ApiConventionType(typeof(DefaultApiConventions))]
     public class MovieController : ControllerBase
     {
         private readonly IMovieService _movieService;
@@ -28,56 +32,10 @@ namespace Assignment3_WebAPI.Controllers
             _mapper = mapper;
         }
 
-        /// <summary>
-        /// Endpoint for PUT characters in movie.
-        /// </summary>
-        /// <param name="characterIds">Array of character ids</param>
-        /// <param name="movieId">Id of movie.</param>
-        /// <returns>IActionresult for HTTP status code</returns>
-        [HttpPut("/updateCharactersInMovie")]
-        public async Task<IActionResult> PutCharactersInMovie(int[] characterIds, int movieId)
-        {
-            try
-            {
-                await _movieService.UpdateCharactersInMovie(characterIds, movieId);
-                return NoContent();
-            }
-            catch (MovieNotFoundException ex)
-            {
-                return NotFound(
-                    new ProblemDetails()
-                    {
-                        Detail = ex.Message
-
-                    }
-                    );
-            }
-        }
+        
 
         /// <summary>
-        /// Endpoint for GET 
-        /// </summary>
-        /// <param name="id">Id of movie</param>
-        /// <returns>IEnumerable of Movie</returns>
-        [HttpGet("{id}/characters")]
-        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInMovie(int id)
-        {
-            try
-            {
-                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _movieService.GetCharactersInMovie(id)));
-            }
-            catch (MovieNotFoundException ex)
-            {
-                return NotFound(new ProblemDetails
-                {
-                    Detail = ex.Message
-                });
-            }
-        }
-
-
-        /// <summary>
-        /// Endpoint for GET movies in database.
+        /// Gets all movies in the database.
         /// </summary>
         /// <returns>IEnumerable of GetMovieDTO</returns>
         [HttpGet]
@@ -87,7 +45,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for GET movie by id.
+        /// Gets a movie by id.
         /// </summary>
         /// <param name="id">Id of movie</param>
         /// <returns>GetMovieDTO</returns>
@@ -108,7 +66,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for PUT movie in database. 
+        /// Adds a movie to the database. 
         /// </summary>
         /// <param name="addMovieDto">addMovieDTO</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -122,7 +80,7 @@ namespace Assignment3_WebAPI.Controllers
 
 
         /// <summary>
-        /// Endpoint for DELETE movie in database.
+        /// Removes a movie from the database.
         /// </summary>
         /// <param name="id">Id of movie to delete</param>
         /// <returns>IActionresult for HTTP status code</returns>
@@ -145,7 +103,7 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Endpoint for PUT movie in database.
+        /// Updates a movie in the database.
         /// </summary>
         /// <param name="id">Id of movie to be updated.</param>
         /// <param name="dtoMovie">dtoMovie</param>
@@ -173,5 +131,54 @@ namespace Assignment3_WebAPI.Controllers
 
             return NoContent();
         }
+
+ 
+        /// <summary>
+        /// Gets all characters in a movie.
+        /// </summary>
+        /// <param name="id">Id of movie</param>
+        /// <returns>IEnumerable of Movie</returns>
+        [HttpGet("{id}/characters")]
+        public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInMovie(int id)
+        {
+            try
+            {
+                return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _movieService.GetCharactersInMovie(id)));
+            }
+            catch (MovieNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+        }
+
+        /// <summary>
+        /// Update characters in a movie.
+        /// </summary>
+        /// <param name="characterIds">Array of character ids</param>
+        /// <param name="movieId">Id of movie.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
+        [HttpPut("{id}/characters")]
+        public async Task<IActionResult> PutCharactersInMovie(int[] characterIds, int movieId)
+        {
+            try
+            {
+                await _movieService.UpdateCharactersInMovie(characterIds, movieId);
+                return NoContent();
+            }
+            catch (MovieNotFoundException ex)
+            {
+                return NotFound(
+                    new ProblemDetails()
+                    {
+                        Detail = ex.Message
+
+                    }
+                    );
+            }
+        }
+
     }
 }
