@@ -10783,19 +10783,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\RStemp\\.nuget\\packages\\": {}
+    "C:\\Users\\ANyman\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
+      "projectUniqueName": "C:\\Users\\ANyman\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
       "projectName": "Assignment3_WebAPI",
-      "projectPath": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
-      "packagesPath": "C:\\Users\\RStemp\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\RStemp\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\obj\\",
+      "projectPath": "C:\\Users\\ANyman\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\Assignment3_WebAPI.csproj",
+      "packagesPath": "C:\\Users\\ANyman\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ANyman\\source\\repos\\Assignment3_WebAPI\\Assignment3_WebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\RStemp\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\ANyman\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -10869,7 +10869,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

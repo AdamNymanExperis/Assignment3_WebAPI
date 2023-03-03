@@ -15,7 +15,7 @@ using System.Net.Mime;
 
 namespace Assignment3_WebAPI.Controllers
 {
-    [Route("api/v1/characters")]
+    [Route("api/v1")]
     [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
     [Consumes(MediaTypeNames.Application.Json)]
@@ -35,10 +35,23 @@ namespace Assignment3_WebAPI.Controllers
         /// Gets all the characters in the database.
         /// </summary>
         /// <returns>IEnumerable of GetCharacterDTO</returns>
-        [HttpGet]
+        [HttpGet("characters")]
         public async Task<ActionResult<IEnumerable<GetCharacterDto>>> GetCharacters()
         {
             return Ok(_mapper.Map<IEnumerable<GetCharacterDto>>(await _characterService.getAllCharacters()));
+        }
+
+        /// <summary>
+        /// Adds a character to the database.
+        /// </summary>
+        /// <param name="addCharacterDto">addCharacterDTO</param>
+        /// <returns>The character that was added to the database.</returns>
+        [HttpPost("character")]
+        public async Task<ActionResult<Character>> PostCharacter(AddCharacterDto addCharacterDto)
+        {
+            var character = _mapper.Map<Character>(addCharacterDto);
+            await _characterService.AddCharacter(character);
+            return CreatedAtAction(nameof(GetCharacter), new { id = character.Id }, character);
         }
 
         /// <summary>
@@ -46,7 +59,7 @@ namespace Assignment3_WebAPI.Controllers
         /// </summary>
         /// <param name="id">Id of character.</param>
         /// <returns>GetCharacterDTO</returns>
-        [HttpGet("{id}")]
+        [HttpGet("character/{id}")]
         public async Task<ActionResult<GetCharacterDto>> GetCharacter(int id)
         {
             try
@@ -64,25 +77,11 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Adds a character to the database.
-        /// </summary>
-        /// <param name="addCharacterDto">addCharacterDTO</param>
-        /// <returns>The character that was added to the database.</returns>
-        [HttpPost]
-        public async Task<ActionResult<Character>> PostCharacter(AddCharacterDto addCharacterDto)
-        {
-            var character = _mapper.Map<Character>(addCharacterDto);
-            await _characterService.AddCharacter(character);
-            return CreatedAtAction(nameof(GetCharacter), new { id = character.Id }, character);
-        }
-
-
-        /// <summary>
         /// Removes a character from the database. 
         /// </summary>
         /// <param name="id">Id of character</param>
         /// <returns>IActionresult for HTTP status code</returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("character/{id}")]
         public async Task<IActionResult> DeleteCharacter(int id)
         {
             try
@@ -107,7 +106,7 @@ namespace Assignment3_WebAPI.Controllers
         /// <param name="id">Id of character to be updated.</param>
         /// <param name="dtoCharacter">dtoCharacter with data for character.</param>
         /// <returns>IActionresult for HTTP status code</returns>
-        [HttpPut("{id}")]
+        [HttpPut("character/{id}")]
         public async Task<IActionResult> PutCharacter(int id, PutCharacterDto dtoCharacter)
         {
             if (id != dtoCharacter.Id)

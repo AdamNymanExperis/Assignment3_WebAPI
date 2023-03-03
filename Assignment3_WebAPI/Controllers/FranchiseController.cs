@@ -17,7 +17,7 @@ using System.Net.Mime;
 
 namespace Assignment3_WebAPI.Controllers
 {
-    [Route("api/v1/franchises")]
+    [Route("api/v1")]
     [ApiController]
     [Produces(MediaTypeNames.Application.Json)]
     [Consumes(MediaTypeNames.Application.Json)]
@@ -37,18 +37,32 @@ namespace Assignment3_WebAPI.Controllers
         /// Gets all the franchises in the database.
         /// </summary>
         /// <returns>IEnumerable of GetFranchiseDto</returns>
-        [HttpGet]
+        [HttpGet("franchises")]
         public async Task<ActionResult<IEnumerable<GetFranchiseDto>>> GetFranchises()
         {
             return Ok(_mapper.Map<IEnumerable<GetFranchiseDto>>(await _franchiseService.getAllFranchises()));
         }
 
         /// <summary>
+        /// Adds a new franchise to the database.
+        /// </summary>
+        /// <param name="addFranchiseDto">DTO holding franchise data.</param>
+        /// <returns>The Franchise that was posted.</returns>
+        [HttpPost("franchise")]
+        public async Task<ActionResult<Franchise>> PostFranchise(AddFranchiseDto addFranchiseDto)
+        {
+            var franchise = _mapper.Map<Franchise>(addFranchiseDto);
+            await _franchiseService.AddFranchise(franchise);
+            return CreatedAtAction(nameof(GetFranchise), new { id = franchise.Id }, franchise);
+        }
+
+
+        /// <summary>
         /// Gets a franchise by id.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns>A GetFranchiseDto</returns>
-        [HttpGet("{id}")]
+        [HttpGet("franchise/{id}")]
         public async Task<ActionResult<GetFranchiseDto>> GetFranchise(int id)
         {
             try
@@ -65,12 +79,35 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
+        /// Removes a franchise by id
+        /// </summary>
+        /// <param name="id">The id of the franchise to be removed from database.</param>
+        /// <returns>IActionresult for HTTP status code</returns>
+        [HttpDelete("franchise/{id}")]
+        public async Task<IActionResult> DeleteFranchise(int id)
+        {
+            try
+            {
+                await _franchiseService.DeleteFranchise(id);
+            }
+            catch (FranchiseNotFoundException ex)
+            {
+                return NotFound(new ProblemDetails
+                {
+                    Detail = ex.Message
+                });
+            }
+
+            return NoContent();
+        }
+
+        /// <summary>
         /// Updates a franchise in the database
         /// </summary>
         /// <param name="id"></param>
         /// <param name="putFranchiseDto"></param>
         /// <returns></returns>
-        [HttpPut("{id}")]
+        [HttpPut("franchise/{id}")]
         public async Task<IActionResult> PutFranchise(int id, PutFranchiseDto putFranchiseDto)
         {
             if (id != putFranchiseDto.Id)
@@ -95,47 +132,11 @@ namespace Assignment3_WebAPI.Controllers
         }
 
         /// <summary>
-        /// Adds a new franchise to the database.
-        /// </summary>
-        /// <param name="addFranchiseDto">DTO holding franchise data.</param>
-        /// <returns>The Franchise that was posted.</returns>
-        [HttpPost]
-        public async Task<ActionResult<Franchise>> PostFranchise(AddFranchiseDto addFranchiseDto)
-        {
-            var franchise = _mapper.Map<Franchise>(addFranchiseDto);
-            await _franchiseService.AddFranchise(franchise);
-            return CreatedAtAction(nameof(GetFranchise), new { id = franchise.Id }, franchise);
-        }
-
-        /// <summary>
-        /// Removes a franchise by id
-        /// </summary>
-        /// <param name="id">The id of the franchise to be removed from database.</param>
-        /// <returns>IActionresult for HTTP status code</returns>
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteFranchise(int id)
-        {
-            try
-            {
-                await _franchiseService.DeleteFranchise(id);
-            }
-            catch (FranchiseNotFoundException ex)
-            {
-                return NotFound(new ProblemDetails
-                {
-                    Detail = ex.Message
-                });
-            }
-
-            return NoContent();
-        }
-
-        /// <summary>
         /// Gets all the movies belonging to a franchise.
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns></returns>
-        [HttpGet("{id}/movies")]
+        [HttpGet("franchise/{id}/movies")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetMoviesInFranchise(int id)
         {
             try
@@ -155,7 +156,7 @@ namespace Assignment3_WebAPI.Controllers
         /// </summary>
         /// <param name="id">The id of the franchise.</param>
         /// <returns>IEnumerable of Movie</returns>
-        [HttpGet("{id}/characters")]
+        [HttpGet("franchise/{id}/characters")]
         public async Task<ActionResult<IEnumerable<Movie>>> GetCharactersInFranchise(int id)
         {
             try
@@ -177,7 +178,7 @@ namespace Assignment3_WebAPI.Controllers
         /// <param name="movieIds">List of ids belonging to a franchise. </param>
         /// <param name="franchiseId">The id of the franchise to be updatded.</param>
         /// <returns>IActionresult for HTTP status code</returns>
-        [HttpPut("{id}/movies")]
+        [HttpPut("franchise/{id}/movies")]
         public async Task<IActionResult> PutMoviesInFranchise(int[] movieIds, int franchiseId)
         {
             try

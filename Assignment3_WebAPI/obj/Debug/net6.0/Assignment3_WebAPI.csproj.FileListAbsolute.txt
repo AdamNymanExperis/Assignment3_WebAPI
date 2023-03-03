@@ -877,3 +877,7 @@ C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\ref\Assignment3_WebAPI.dll
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\bin\Debug\net6.0\Assignment3_WebAPI.xml
 C:\Users\RStemp\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\Assignment3_WebAPI.xml
+C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\obj\Debug\net6.0\Assignment3_WebAPI.xml
+C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\bin\Debug\net6.0\Assignment3_WebAPI.xml
+C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\ANyman\source\repos\Assignment3_WebAPI\Assignment3_WebAPI\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
